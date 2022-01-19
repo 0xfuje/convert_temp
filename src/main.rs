@@ -25,17 +25,28 @@ fn main() {
         .read_line(&mut number)
         .expect("Failed to read number");
 
-    let number: i32 = number.trim().parse::<i32>().unwrap();
+    let input_number: i32 = number.trim().parse::<i32>().unwrap();
 
     fn fah_to_cel(fah: i32) -> i32 {
         let cel = (fah - 32) * 5 / 9;
-        {cel}
+        cel
     }
     fn cel_to_fah(cel: i32) -> i32 {
-        let fah: i32 = (cel * 9 / 5) + 32;
-        {fah}
+        let fah: i32 = (cel * 9 / 5) + 32; 
+        fah
     }
-    println!("{}", number);
+
+    match input {
+        "F" => {
+            let result = fah_to_cel(input_number);
+            println!("{}°F converted to {}°C", input_number, result)
+        }
+        "C" => {
+            let result = cel_to_fah(input_number);
+            println!("{}°C converted to {}°F", input_number, result)
+        }
+        _ => println!("Something went wrong")
+    }
 
     
 
