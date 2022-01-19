@@ -25,9 +25,17 @@ fn main() {
         .read_line(&mut number)
         .expect("Failed to read number");
 
-    let number: u32 = number.trim().parse();
+    let number: i32 = number.trim().parse::<i32>().unwrap();
 
-    println!(number);
+    fn fah_to_cel(fah: i32) -> i32 {
+        let cel = (fah - 32) * 5 / 9;
+        {cel}
+    }
+    fn cel_to_fah(cel: i32) -> i32 {
+        let fah: i32 = (cel * 9 / 5) + 32;
+        {fah}
+    }
+    println!("{}", number);
 
     
 
